@@ -183,17 +183,17 @@ const handleClose = () => {
             <div>专升本8班</div>
             <div>17、19周</div>
           </td>
-          <td rowspan="2" :class="`${weeks > 15 && weeks !== 18 ? 'gray' : ''}`">
-            <div>{{ weeks > 15 ? 'BS系统实训' : '软件测试'}}</div>
-            <div>{{ weeks > 15 ? '东苑4号楼307' : '7203'}}</div>
-            <div>{{ weeks > 15 ? '专升本8班' : '计科12班'}}</div>
-            <div>{{ weeks > 15 ? '18周' : '1-15周'}}</div>
+          <td rowspan="2" :class="`${weeks > 15 && weeks !== 17 && weeks !== 18 ? 'gray' : ''}`">
+            <div>{{ weeks < 16 ? '软件测试' : weeks > 17 ? 'BS系统实训' : '监考'}}</div>
+            <div>{{ weeks < 16 ? '7203' : weeks > 17 ? '东苑4号楼307' : '计算中心1区'}}</div>
+            <div>{{ weeks < 16 ? '计科12班' : weeks > 17 ? '专升本8班' : '22计科1班'}}</div>
+            <div>{{ weeks < 16 ? '1-15周' : weeks > 17 ? '18周' : '9:00 - 11:00'}}</div>
           </td>
-          <td rowspan="2" :class="`${weeks > 15 && weeks !== 17 && weeks !== 19 ? 'gray' : ''}`">
-            <div>{{ weeks > 15 ? 'BS系统实训' : '软件测试'}}</div>
-            <div>{{ weeks > 15 ? '东苑4号楼307' : '7403'}}</div>
-            <div>{{ weeks > 15 ? '专升本8班' : '计科34班'}}</div>
-            <div>{{ weeks > 15 ? '17、19周' : '1-15周'}}</div>
+          <td rowspan="2" :class="`${weeks > 15 && weeks !== 16 && weeks !== 17 && weeks !== 19 ? 'gray' : ''}`">
+            <div>{{ weeks < 16 ? '软件测试' : weeks > 16 ? 'BS系统实训' : '数据结构'}}</div>
+            <div>{{ weeks < 16 ? '7403' : weeks > 16 ?'东苑4号楼307' : '6407'}}</div>
+            <div>{{ weeks < 16 ? '计科34班' : weeks > 16 ?'专升本8班' : '23计科专升6'}}</div>
+            <div>{{ weeks < 16 ? '1-15周' : weeks > 16 ?'17、19周' : '9:00 - 11:00'}}</div>
           </td>
           <td rowspan="2" :class="`${weeks > 5 && weeks !== 18 ? 'gray' : ''}`">
             <div>{{ weeks > 5 ? 'BS系统实训' : '软件测试'}}</div>
@@ -201,11 +201,11 @@ const handleClose = () => {
             <div>{{ weeks > 5 ? '专升本8班' : '计科12班'}}</div>
             <div>{{ weeks > 5 ? '18周' : '1-5周'}}</div>
           </td>
-          <td rowspan="2" :class="`${weeks !== 17 && weeks !== 19 ? 'gray' : ''}`">
-            <div>BS系统实训</div>
-            <div>东苑4号楼307</div>
-            <div>专升本8班</div>
-            <div>17、19周</div>
+          <td rowspan="2" :class="`${weeks !== 16 && weeks !== 17 && weeks !== 19 ? 'gray' : ''}`">
+            <div>{{ weeks > 16 ? 'BS系统实训' : '电气与PLC'}}</div>
+            <div>{{ weeks > 16 ? '东苑4号楼307' : '7303'}}</div>
+            <div>{{ weeks > 16 ? '专升本8班' : '22电气4班'}}</div>
+            <div>{{ weeks > 16 ? '17、19周' : '9:00 - 10:30'}}</div>
           </td>
         </tr>
         <tr>
@@ -277,11 +277,11 @@ const handleClose = () => {
             <div>专升本8班</div>
             <div>18周</div>
           </td>
-          <td rowspan="2" :class="`${weeks > 10 && weeks !== 17 && weeks !== 19 ? 'gray' : ''}`">
-            <div>{{ weeks > 10 ? 'BS系统实训' : '软件测试'}}</div>
-            <div>{{ weeks > 10 ? '东苑4号楼307' : '7211讨论室'}}</div>
-            <div>{{ weeks > 10 ? '专升本8班' : '计科5班'}}</div>
-            <div>{{ weeks > 10 ? '17、19周' : '1-10周'}}</div>
+          <td rowspan="2" :class="`${weeks > 10 && weeks !== 16 && weeks !== 17 && weeks !== 19 ? 'gray' : ''}`">
+            <div>{{ weeks < 11 ? '软件测试' : weeks > 16 ? 'BS系统实训' : '编译原理'}}</div>
+            <div>{{ weeks < 11 ? '7211讨论室' : weeks > 16 ? '东苑4号楼307' : '6507'}}</div>
+            <div>{{ weeks < 11 ? '计科5班' : weeks > 16 ? '专升本8班' : '21计科1班'}}</div>
+            <div>{{ weeks < 11 ? '1-10周' : weeks > 16 ? '17、19周' : '13:30 - 15:30'}}</div>
           </td>
           <td rowspan="2" :class="`${weeks > 5 && weeks !== 18 ? 'gray' : ''}`">
             <div>{{ weeks > 5 ? 'BS系统实训' : '软件测试'}}</div>
@@ -324,11 +324,11 @@ const handleClose = () => {
             <div>专升本8班</div>
             <div>17、19周</div>
           </td>
-          <td rowspan="2" :class="`${weeks !== 18 ? 'gray' : ''}`">
-            <div>BS系统实训</div>
-            <div>东苑4号楼307</div>
-            <div>专升本8班</div>
-            <div>18周</div>
+          <td rowspan="2" :class="`${weeks !== 15 && weeks !== 18 ? 'gray' : ''}`">
+            <div>{{ weeks > 15 ? 'BS系统实训' : '重修大物'}}</div>
+            <div>{{ weeks > 15 ? '东苑4号楼307' : '7102左'}}</div>
+            <div>{{ weeks > 15 ? '专升本8班' : '重修51-67号'}}</div>
+            <div>{{ weeks > 15 ? '18周' : '15:10 - 17:10'}}</div>
           </td>
         </tr>
         <tr>
