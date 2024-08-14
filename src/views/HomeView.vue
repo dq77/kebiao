@@ -76,71 +76,74 @@ const addClickFunc = () => {
 
 const initSpecialEvent = () => {
   const realNow = new Date()
-  if (realNow.getMonth() === 2 && realNow.getDate() === 4) {
+  if (realNow.getMonth() === 7 && realNow.getDate() === 27) {
     openDialog('温馨提示', '点击确认按钮，则今日不再提示。')
-  } else if (realNow.getMonth() === 2 && realNow.getDate() === 6) {
+  } else if (realNow.getMonth() === 7 && realNow.getDate() === 28) {
     openDialog('欢迎', '正在启动中，欢迎使用课表')
-  } else if (realNow.getMonth() === 2 && realNow.getDate() === 8) {
-    openDialog('温馨提示', '女神节快乐!')
-  } else if (realNow.getMonth() === 2 && realNow.getDate() === 11) {
-    openDialog('日程提醒', '系统提示您，请给老公订生日蛋糕。')
-  } else if (realNow.getMonth() === 2 && realNow.getDate() === 14) {
-    openDialog('通知', '你知道吗？通知只是让你除了课表外还有东西可看')
-  } else if (realNow.getMonth() === 2 && realNow.getDate() === 15) {
-    openDialog('通知', '这里通知的数量其实很多，有兴趣的可以尝试收集一下。')
-  } else if (realNow.getMonth() === 2 && realNow.getDate() === 20) {
-    openDialog('温馨提示', '长时间上课会有引发咽炎的风险哦，注意休息。')
-  } else if (realNow.getMonth() === 2 && realNow.getDate() === 28) {
-    openDialog('教务通知', '教务通知：下周清明节，请及时调课')
-  } else if (realNow.getMonth() === 3 && realNow.getDate() === 1) {
-    openDialog('系统故障', '服务不可用，请刷新重试。')
-  } else if (realNow.getMonth() === 3 && realNow.getDate() === 3) {
-    openDialog('提示', '该提示暂未想好')
-  } else if (realNow.getMonth() === 3 && realNow.getDate() === 8) {
-    openDialog('通知', '其实通知还是有正经的，就比如这个')
-  } else if (realNow.getMonth() === 3 && realNow.getDate() === 10) {
-    openDialog('温馨提示', '大家好！这里是温馨提示，那么本次内容就到这啦！谢谢观看！')
-  } else if (realNow.getMonth() === 3 && realNow.getDate() === 16) {
-    openDialog('通知', '你知道吗？其实通知全都是废话（确信')
-  } else if (realNow.getMonth() === 3 && realNow.getDate() === 18) {
-    openDialog('热知识', '这是一条…烫烫烫烫烫！的热知识。')
-  } else if (realNow.getMonth() === 3 && realNow.getDate() === 22) {
-    openDialog('温馨提示', '假如，我是说假如，这周末是工作日…')
-  } else if (realNow.getMonth() === 3 && realNow.getDate() === 24) {
-    openDialog('冷知识', '这是一条…啊嚏！…冷知识！')
-  } else if (realNow.getMonth() === 3 && realNow.getDate() === 30) {
+  } else if (realNow.getMonth() === 8 && realNow.getDate() === 10) {
+    openDialog('温馨提示', '教师节快乐!')
+  } else if (realNow.getMonth() === 8 && realNow.getDate() === 11) {
+    openDialog('温馨提示', '假如，我是说假如，这周六是工作日…')
+  } else if (realNow.getMonth() === 8 && realNow.getDate() === 13) {
     openDialog('通知', '上次看到这条通知还是在上次')
-  } else if (realNow.getMonth() === 4 && realNow.getDate() < 6) {
-    openDialog('警告', '劳动节放假期间，看什么课程表？！')
-  } else if (realNow.getMonth() === 4 && realNow.getDate() === 8) {
-    openDialog('提示', '啊！要给你看什么提示好呢…(翻')
-  } else if (realNow.getMonth() === 4 && realNow.getDate() === 14) {
-    openDialog('温馨提示', '当你在觉得诸事不顺的时候，看看现在的能力，比起刚入行的时候，是不是提高了很多？现在也是哦，你一直都在成长')
-  } else if (realNow.getMonth() === 4 && realNow.getDate() === 15) {
+  } else if (realNow.getMonth() === 8 && realNow.getDate() > 14 && realNow.getDate() < 18) {
+    openDialog('警告', '中秋节放假期间，看什么课程表？！')
+  } else if (realNow.getMonth() === 8 && realNow.getDate() === 18) {
+    openDialog('通知', '你知道吗？通知只是让你除了课表外还有东西可看')
+  } else if (realNow.getMonth() === 8 && realNow.getDate() === 20) {
+    openDialog('提示', '上课久了，一定要记得闭上眼睛休息一会哦~')
+  } else if (realNow.getMonth() === 8 && realNow.getDate() === 24) {
+    openDialog('通知', '这里通知的数量其实很多，有兴趣的可以尝试收集一下。')
+  } else if (realNow.getMonth() === 8 && realNow.getDate() === 25) {
+    openDialog('教务通知', '教务通知：下周国庆节，请及时调课')
+  } else if (realNow.getMonth() === 8 && realNow.getDate() === 27) {
     openDialog('温馨提示', '竖起大拇指，自信沈工人')
-  } else if (realNow.getMonth() === 4 && realNow.getDate() === 20) {
-    openDialog('温馨提示', '给老公发送爱心可以获得红包一个。')
-  } else if (realNow.getMonth() === 4 && realNow.getDate() === 21) {
+  } else if (realNow.getMonth() === 9 && realNow.getDate() < 8) {
+    openDialog('警告', '国庆节放假期间，看什么课程表？！')
+  } else if (realNow.getMonth() === 9 && realNow.getDate() === 9) {
     openDialog('提示', '当你在看提示的时候，提示也在看着你')
-  } else if (realNow.getMonth() === 4 && realNow.getDate() === 28) {
-    openDialog('通知', '《关于工学院教师不过儿童节的通知》')
-  } else if (realNow.getMonth() === 5 && realNow.getDate() === 4) {
-    openDialog('加油', '最后一课，打起精神来，你是最棒的。')
-  } else if (realNow.getMonth() === 5 && realNow.getDate() === 17) {
-    openDialog('通知', '如果腰部感到不舒畅，起身走走，然后回来，会好很多。')
-  } else if (realNow.getMonth() === 5 && realNow.getDate() === 19) {
-    openDialog('', '通知：通知：通知：通知：通知：通知：')
-  } else if (realNow.getMonth() === 5 && realNow.getDate() === 20) {
+  } else if (realNow.getMonth() === 9 && realNow.getDate() === 11) {
+    openDialog('温馨提示', '长时间上课会有引发咽炎的风险哦，注意休息。')
+  } else if (realNow.getMonth() === 9 && realNow.getDate() === 16) {
+    openDialog('提示', '该提示暂未想好')
+  } else if (realNow.getMonth() === 9 && realNow.getDate() === 18) {
+    openDialog('通知', '其实通知还是有正经的，就比如这个')
+  } else if (realNow.getMonth() === 9 && realNow.getDate() === 22) {
+    openDialog('温馨提示', '大家好！这里是温馨提示，那么本次内容就到这啦！谢谢观看！')
+  } else if (realNow.getMonth() === 9 && realNow.getDate() === 25) {
     openDialog('通知', '不写，懒了')
-  } else if (realNow.getMonth() === 5 && realNow.getDate() === 25) {
-    openDialog('暑假', '这日子是越来越有盼头了')
-  } else if (realNow.getMonth() === 5 && realNow.getDate() === 27) {
+  } else if (realNow.getMonth() === 9 && realNow.getDate() === 29) {
+    openDialog('通知', '你知道吗？其实通知全都是废话（确信')
+  } else if (realNow.getMonth() === 10 && realNow.getDate() === 1) {
+    openDialog('', '通知：通知：通知：通知：通知：通知：')
+  } else if (realNow.getMonth() === 10 && realNow.getDate() === 5) {
+    openDialog('热知识', '这是一条…烫烫烫烫烫！的热知识。')
+  } else if (realNow.getMonth() === 10 && realNow.getDate() === 8) {
+    openDialog('冷知识', '这是一条…啊嚏！…冷知识！')
+  } else if (realNow.getMonth() === 10 && realNow.getDate() > 10 && realNow.getDate() < 16) {
+    openDialog('警告', '本周没课，看什么课程表？！')
+  } else if (realNow.getMonth() === 10 && realNow.getDate() === 19) {
+    openDialog('温馨提示', '当你在觉得诸事不顺的时候，看看现在的能力，比起刚入行的时候，是不是提高了很多？现在也是哦，你一直都在成长')
+  } else if (realNow.getMonth() === 10 && realNow.getDate() === 22) {
+    openDialog('提示', '啊！要给你看什么提示好呢…(翻')
+  } else if (realNow.getMonth() === 10 && realNow.getDate() === 27) {
+    openDialog('提示', '明天是感恩节。♫ 感恩的心~~ ♫ 感谢有你~~')
+  } else if (realNow.getMonth() === 10 && realNow.getDate() === 29) {
+    openDialog('通知', '如果腰部感到不舒畅，起身走走，然后回来，会好很多。')
+  } else if (realNow.getMonth() === 11 && realNow.getDate() === 3) {
     openDialog('提示', '期末啦，大家都长大啦ww')
-  } else if (realNow.getMonth() === 6 && realNow.getDate() === 2) {
-    openDialog('提示', '实训久了，一定要记得闭上眼睛休息一会哦~')
-  } else if (realNow.getMonth() === 6 && realNow.getDate() === 5) {
+  } else if (realNow.getMonth() === 11 && realNow.getDate() === 6) {
+    openDialog('温馨提示', '大雪节气，多喝热水。')
+  } else if (realNow.getMonth() === 11 && realNow.getDate() === 10) {
+    openDialog('寒假', '这日子是越来越有盼头了')
+  } else if (realNow.getMonth() === 11 && realNow.getDate() === 11) {
     openDialog('通知', '这是本学期最后一条通知，下学期见。')
+  } else if (realNow.getMonth() === 11 && realNow.getDate() === 13) {
+    openDialog('加油', '最后一课，打起精神来，你是最棒的。')
   }
+    // openDialog('日程提醒', '系统提示您，请给老公订生日蛋糕。')
+    // openDialog('温馨提示', '给老公发送爱心可以获得红包一个。')
+    // openDialog('通知', '《关于工学院教师不过儿童节的通知》')
 }
 
 const openDialog = (title, content) => {
