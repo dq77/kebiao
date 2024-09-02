@@ -24,5 +24,8 @@ export default defineConfig({
       '@': fileURLToPath(new URL('./src', import.meta.url))
     }
   },
+  build: {
+    outDir: 'docs', // 默认值是'dist'
+  },
   base: '/kebiao'
 })
