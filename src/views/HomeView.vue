@@ -454,7 +454,7 @@ const handleClose = () => {
     line-height: 31px;
     span{
       font-weight: bold;
-      color: #409EFF;
+      color: #E6A23C;
     }
   }
   .box-card{
