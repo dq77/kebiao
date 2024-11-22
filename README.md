@@ -1,29 +1,11 @@
-# kebiao
+#### kebiao
 
-This template should help get you started developing with Vue 3 in Vite.
-
-## Recommended IDE Setup
-
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vitejs.dev/config/).
-
-## Project Setup
+打开 `HomeView.vue` 文件，全局搜索以下字符串，并做出修改：
 
 ```sh
-npm install
+不同学期不通用，需按照学期修改
 ```
 
-### Compile and Hot-Reload for Development
+一共四处搜索结果，都要根据实际情况修改。前两处设置学期开始日期，第三处设置周数对应月份，第四处设置跨越周数处理。
 
-```sh
-npm run dev
-```
-
-### Compile and Minify for Production
-
-```sh
-npm run build
-```
+已过期的课表可在router中新增一条路由作为历史记录保存。

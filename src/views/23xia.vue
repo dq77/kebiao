@@ -466,7 +466,7 @@ const handleClose = () => {
     border-top: 1px solid #DCDFE6;
     border-left: 1px solid #DCDFE6;
     .nowweek {
-      background-color: #409EFF;
+      background-color: #E6A23C;
       color: #FFF;
     }
     .gray{
@@ -505,7 +505,7 @@ const handleClose = () => {
         background-color: #d1edc4;
       }
       .today{
-        background-color: #409EFF;
+        background-color: #E6A23C;
         color: #FFF;
       }
     }
