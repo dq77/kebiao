@@ -4,8 +4,8 @@ import { ref, onMounted, computed } from 'vue'
 const xiaoli = ref()
 const start = new Date(2024,7,26,0,0,0,0) // 起始日期 2024-08-26 （不同学期不通用，需按照学期修改）
 let now = ref(new Date())
-if (now.value.getTime() < start.getTime()) {
-  now.value = new Date(2024,7,26,1,0,0,0) // 比起始日期多一小时（不同学期不通用，需按照学期修改）
+if (now.value.getTime() < start.getTime() || now.value.getTime() > start.getTime() + (1000 * 60 * 60 * 24 * 180)) {
+  now.value = new Date(start.getTime() + 1)
 }
 const dialogVisible = ref(false)
 const dialogContent = ref('')
