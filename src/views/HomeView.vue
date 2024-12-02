@@ -245,11 +245,11 @@ const handleClose = () => {
             <div></div>
             <div></div>
           </td>
-          <td rowspan="2" :class="`${weeks > 16 || (weeks === 12) ? 'gray' : ''}`">
-            <div>数据结构</div>
-            <div>7210</div>
-            <div>23计科6班</div>
-            <div>{{ weeks < 12 ? '1-11周' : '13-16周'}}</div>
+          <td rowspan="2" :class="`${weeks > 17 || (weeks === 12) ? 'gray' : ''}`">
+            <div>{{ weeks < 17 ? '数据结构' : '监考'}}</div>
+            <div>{{ weeks < 17 ? '7210' : '7408'}}</div>
+            <div>{{ weeks < 17 ? '23计科6班' : '10:30-12点'}}</div>
+            <div>{{ weeks < 17 ? weeks < 12 ? '1-11周' : '13-16周' : '17周'}}</div>
           </td>
         </tr>
         <tr>
@@ -280,11 +280,11 @@ const handleClose = () => {
             <div></div>
             <div></div>
           </td>
-          <td rowspan="2" :class="`${weeks !== 16 ? 'gray' : ''}`">
+          <td rowspan="2" :class="`${weeks < 16 ||weeks > 17  ? 'gray' : ''}`">
             <div>监考</div>
-            <div>计算中心2区</div>
-            <div>14点-16点</div>
-            <div>16周</div>
+            <div>{{ weeks < 17 ? '计算中心2区' : '7401'}}</div>
+            <div>{{ weeks < 17 ? '14点-16点' : '14点-15:40'}}</div>
+            <div>{{ weeks < 17 ? '16周' : '17周'}}</div>
           </td>
           <td rowspan="2" :class="`${weeks > 16 || (weeks < 13 && weeks > 5) ? 'gray' : ''}`">
             <div>数据结构</div>
