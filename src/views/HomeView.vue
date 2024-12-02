@@ -227,11 +227,11 @@ const handleClose = () => {
             <div></div>
             <div></div>
           </td>
-          <td rowspan="2" :class="`${weeks !== 3 ? 'gray' : ''}`">
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
+          <td rowspan="2" :class="`${weeks !== 15 ? 'gray' : ''}`">
+            <div>监考</div>
+            <div>计算中心2区</div>
+            <div>10点-12点</div>
+            <div>15周</div>
           </td>
           <td rowspan="2" :class="`${weeks < 13 || weeks > 16 ? 'gray' : ''}`">
             <div>数据结构</div>
@@ -291,10 +291,6 @@ const handleClose = () => {
             <div>7406</div>
             <div>23计科7班</div>
             <div>{{ weeks < 6 ? '1-5周' : '13-16周'}}</div>
-            <div :class="`${weeks !== 15 ? 'gray' : ''}`">监考</div>
-            <div :class="`${weeks !== 15 ? 'gray' : ''}`">7301</div>
-            <div :class="`${weeks !== 15 ? 'gray' : ''}`">14点-16点</div>
-            <div :class="`${weeks !== 15 ? 'gray' : ''}`">15周</div>
           </td>
         </tr>
         <tr>
