@@ -63,7 +63,7 @@ const addClickFunc = () => {
           // 部分周存在跨月 需特殊处理 （不同学期不通用，需按照学期修改）
           if ((week === 6 && inner > 30) || (week === 10 && inner > 27) || (week === 19 && inner > 27)) {
             month -= 1
-          } else if ((week === 1 && inner < 2) || (week === 10 && inner < 4) || (week === 14 && inner < 2)) {
+          } else if ((week === 1 && inner < 2) || (week === 14 && inner < 2)) {
             month += 1
           }
           const day = new Date(2025, month, inner,0,0,1,0)
