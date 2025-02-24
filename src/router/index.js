@@ -13,6 +13,11 @@ const router = createRouter({
       path: '/23xia',
       name: '23xia',
       component: () => import('../views/23xia.vue')
+    },
+    {
+      path: '/24shang',
+      name: '24shang',
+      component: () => import('../views/24shang.vue')
     }
   ]
 })

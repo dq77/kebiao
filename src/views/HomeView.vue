@@ -96,7 +96,7 @@ const initSpecialEvent = () => {
     openDialog('警告', '劳动节放假期间，看什么课程表？！')
   } else if (realNow.getMonth() === 4 && realNow.getDate() === 26) {
     openDialog('通知', '《关于工学院教师不过儿童节的通知》')
-  } else if (Math.random() < 0.3) {
+  } else if (Math.random() < 0.2) {
     const list = [
       { content: '点击确认按钮，则今日不再提示。', title: '温馨提示' },
       { content: '正在启动中，欢迎使用课表', title: '欢迎' },
