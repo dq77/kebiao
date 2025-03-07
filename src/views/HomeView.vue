@@ -286,11 +286,11 @@ const handleClose = () => {
           <el-tooltip effect="light" content="15:15 - 15:55" placement="right">
             <td>7</td>
           </el-tooltip>
-          <td rowspan="2">
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
+          <td rowspan="2" :class="`${weeks !== 3 ? 'gray' : ''}`">
+            <div>培训</div>
+            <div>信息310</div>
+            <div>-</div>
+            <div>3周</div>
           </td>
           <td rowspan="2">
             <div></div>
