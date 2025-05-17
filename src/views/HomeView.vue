@@ -163,11 +163,11 @@ const handleClose = () => {
           <el-tooltip effect="light" content="08:10 - 08:55" placement="right">
             <td>1</td>
           </el-tooltip>
-          <td rowspan="2" :class="`${weeks > 15 ? 'gray' : ''}`">
-            <div>{{ weeks > 11 ? 'Web前端实验' : 'Web前端开发'}}</div>
-            <div>计算中心2区</div>
-            <div>专升本4-5班</div>
-            <div>{{ weeks > 11 ? '12-15周' : '1-11周' }}</div>
+          <td rowspan="2" :class="`${weeks > 19 || weeks === 16 ? 'gray' : ''}`">
+            <div>{{ weeks < 16 ? (weeks > 11 ? 'Web前端实验' : 'Web前端开发') : 'BS系统开发实训'}}</div>
+            <div>{{ weeks < 16 ? '计算中心2区' : '计算中心8区' }}</div>
+            <div>{{ weeks < 16 ? '专升本4-5班' : '专升本3班' }}</div>
+            <div>{{ weeks < 16 ? (weeks > 11 ? '12-15周' : '1-11周') : '17-19周' }}</div>
           </td>
           <td rowspan="2">
             <div></div>
@@ -175,23 +175,23 @@ const handleClose = () => {
             <div></div>
             <div></div>
           </td>
-          <td rowspan="2">
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
+          <td rowspan="2" :class="`${weeks > 19 || weeks < 17 ? 'gray' : ''}`">
+            <div>BS系统开发实训</div>
+            <div>计算中心8区</div>
+            <div>专升本3班</div>
+            <div>17-19周</div>
           </td>
-          <td rowspan="2">
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
+          <td rowspan="2" :class="`${weeks !== 19 ? 'gray' : ''}`">
+            <div>监考</div>
+            <div>7202</div>
+            <div>7月03日</div>
+            <div>9点-10:40</div>
           </td>
-          <td rowspan="2" :class="`${weeks !== 1 ? 'gray' : ''}`">
-            <div>Web前端开发</div>
-            <div>计算中心2区</div>
-            <div>专升本4-5班</div>
-            <div>1周</div>
+          <td rowspan="2" :class="`${(weeks > 1 && weeks < 17) || weeks > 19 ? 'gray' : ''}`">
+            <div>{{ weeks < 2 ? 'Web前端开发' : 'BS系统开发实训'}}</div>
+            <div>{{ weeks < 2 ? '计算中心2区' : '计算中心8区' }}</div>
+            <div>{{ weeks < 2 ? '专升本4-5班' : '专升本3班' }}</div>
+            <div>{{ weeks < 2 ? '1周' : '17-19周' }}</div>
           </td>
         </tr>
         <tr>
@@ -204,11 +204,11 @@ const handleClose = () => {
           <el-tooltip effect="light" content="10:05 - 10:50" placement="right">
             <td>3</td>
           </el-tooltip>
-          <td rowspan="2" :class="`${weeks > 15 ? 'gray' : ''}`">
-            <div>{{ weeks > 11 ? 'Web前端实验' : 'Web前端开发'}}</div>
-            <div>计算中心2区</div>
-            <div>专升本7-8班</div>
-            <div>{{ weeks > 11 ? '12-15周' : '1-11周' }}</div>
+          <td rowspan="2" :class="`${weeks > 19 || weeks === 16 ? 'gray' : ''}`">
+            <div>{{ weeks < 16 ? (weeks > 11 ? 'Web前端实验' : 'Web前端开发') : 'BS系统开发实训'}}</div>
+            <div>{{ weeks < 16 ? '计算中心2区' : '计算中心8区' }}</div>
+            <div>{{ weeks < 16 ? '专升本7-8班' : '专升本3班' }}</div>
+            <div>{{ weeks < 16 ? (weeks > 11 ? '12-15周' : '1-11周') : '17-19周' }}</div>
           </td>
           <td rowspan="2">
             <div></div>
@@ -216,11 +216,11 @@ const handleClose = () => {
             <div></div>
             <div></div>
           </td>
-          <td rowspan="2">
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
+          <td rowspan="2" :class="`${weeks > 19 || weeks < 17 ? 'gray' : ''}`">
+            <div>BS系统开发实训</div>
+            <div>计算中心8区</div>
+            <div>专升本3班</div>
+            <div>17-19周</div>
           </td>
           <td rowspan="2">
             <div></div>
@@ -228,11 +228,11 @@ const handleClose = () => {
             <div></div>
             <div></div>
           </td>
-          <td rowspan="2">
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
+          <td rowspan="2" :class="`${weeks > 19 || weeks < 17 ? 'gray' : ''}`">
+            <div>BS系统开发实训</div>
+            <div>计算中心8区</div>
+            <div>专升本3班</div>
+            <div>17-19周</div>
           </td>
         </tr>
         <tr>
@@ -245,11 +245,17 @@ const handleClose = () => {
           <el-tooltip effect="light" content="13:20 - 14:05" placement="right">
             <td>5</td>
           </el-tooltip>
-          <td rowspan="2">
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
+          <td rowspan="2" :class="`${weeks !== 17 ? 'gray' : ''}`">
+            <div>监考</div>
+            <div>华为102-数通A</div>
+            <div>6月16日</div>
+            <div>14-16点</div>
+          </td>
+          <td rowspan="2" :class="`${weeks > 19 || weeks < 17 ? 'gray' : ''}`">
+            <div>BS系统开发实训</div>
+            <div>计算中心8区</div>
+            <div>专升本3班</div>
+            <div>17-19周</div>
           </td>
           <td rowspan="2">
             <div></div>
@@ -257,17 +263,11 @@ const handleClose = () => {
             <div></div>
             <div></div>
           </td>
-          <td rowspan="2">
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-          </td>
-          <td rowspan="2">
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
+          <td rowspan="2" :class="`${weeks > 19 || weeks < 17 ? 'gray' : ''}`">
+            <div>BS系统开发实训</div>
+            <div>计算中心8区</div>
+            <div>专升本3班</div>
+            <div>17-19周</div>
           </td>
           <td rowspan="2" :class="`${weeks !== 1 ? 'gray' : ''}`">
             <div>Web前端开发</div>
@@ -292,11 +292,11 @@ const handleClose = () => {
             <div>-</div>
             <div>3周</div>
           </td>
-          <td rowspan="2">
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
+          <td rowspan="2" :class="`${weeks > 19 || weeks < 17 ? 'gray' : ''}`">
+            <div>BS系统开发实训</div>
+            <div>计算中心8区</div>
+            <div>专升本3班</div>
+            <div>17-19周</div>
           </td>
           <td rowspan="2">
             <div></div>
@@ -304,11 +304,11 @@ const handleClose = () => {
             <div></div>
             <div></div>
           </td>
-          <td rowspan="2">
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
+          <td rowspan="2" :class="`${weeks > 19 || weeks < 17 ? 'gray' : ''}`">
+            <div>{{ weeks < 18 ? '监考/BS实训': 'BS系统开发实训' }}</div>
+            <div>{{ weeks < 18 ? '华为403-鸿蒙D': '计算中心8区' }}</div>
+            <div>{{ weeks < 18 ? '6月19日': '专升本3班' }}</div>
+            <div>{{ weeks < 18 ? '17:20-19:20': '17-19周' }}</div>
           </td>
           <td rowspan="2">
             <div></div>
