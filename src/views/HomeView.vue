@@ -181,11 +181,11 @@ const handleClose = () => {
             <div>专升本3班</div>
             <div>17-19周</div>
           </td>
-          <td rowspan="2" :class="`${weeks !== 19 && weeks !== 16 && weeks !== 17 ? 'gray' : ''}`">
+          <td rowspan="2" :class="`${weeks !== 19 && weeks !== 17 ? 'gray' : ''}`">
             <div>监考</div>
-            <div>{{ weeks < 17 ? '计算中心4区' : (weeks === 17 ? '7406' : '7202') }}</div>
-            <div>{{ weeks < 17 ? '6月12日' : (weeks === 17 ? '6月19日' : '7月03日') }}</div>
-            <div>{{ weeks < 17 ? '9-11点' : (weeks === 17 ? '9-11点' : '9点-10:40') }}</div>
+            <div>{{ weeks < 18 ? '7406' : '7202' }}</div>
+            <div>{{ weeks < 18 ? '6月19日' : '7月03日' }}</div>
+            <div>{{ weeks < 18 ? '9-11点' : '9点-10:40' }}</div>
           </td>
           <td rowspan="2" :class="`${(weeks > 1 && weeks < 17) || weeks > 19 ? 'gray' : ''}`">
             <div>{{ weeks < 2 ? 'Web前端开发' : 'BS系统开发实训'}}</div>
@@ -304,11 +304,11 @@ const handleClose = () => {
             <div></div>
             <div></div>
           </td>
-          <td rowspan="2" :class="`${weeks > 19 || weeks < 17 ? 'gray' : ''}`">
-            <div>{{ weeks < 18 ? '监考/BS实训': 'BS系统开发实训' }}</div>
-            <div>{{ weeks < 18 ? '华为403-鸿蒙D': '计算中心8区' }}</div>
-            <div>{{ weeks < 18 ? '6月19日': '专升本3班' }}</div>
-            <div>{{ weeks < 18 ? '17:20-19:20': '17-19周' }}</div>
+          <td rowspan="2" :class="`${weeks > 19 || (weeks < 17 && weeks !== 15) ? 'gray' : ''}`">
+            <div>{{ weeks < 16 ? '监考' : (weeks < 18 ? '监考/BS实训': 'BS系统开发实训') }}</div>
+            <div>{{ weeks < 16 ? '华为205-鸿蒙B' : (weeks < 18 ? '华为403-鸿蒙D': '计算中心8区') }}</div>
+            <div>{{ weeks < 16 ? '6月5日' : (weeks < 18 ? '6月19日': '专升本3班') }}</div>
+            <div>{{ weeks < 16 ? '14-16点' : (weeks < 18 ? '17:20-19:20': '17-19周') }}</div>
           </td>
           <td rowspan="2">
             <div></div>
