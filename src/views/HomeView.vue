@@ -152,8 +152,8 @@ const handleClose = () => {
             <td>1</td>
           </el-tooltip>
           <td rowspan="2" :class="`${weeks > 14 || (weeks < 5 && weeks > 2) ? 'gray' : ''}`">
-            <div>云计算技术导论</div>
-            <div>鲲鹏实验室C</div>
+            <div>云计算导论</div>
+            <div>鲲鹏验室C</div>
             <div>专升本7班</div>
             <div>{{ weeks < 3 ? '1-2周' : '5-14周' }}</div>
           </td>
@@ -211,8 +211,8 @@ const handleClose = () => {
             <div></div>
           </td>
           <td rowspan="2" :class="`${weeks > 4 ? 'gray' : ''}`">
-            <div>云计算技术导论</div>
-            <div>鲲鹏实验室C</div>
+            <div>云计算导论</div>
+            <div>鲲鹏验室C</div>
             <div>专升本7班</div>
             <div>1-4周</div>
           </td>
