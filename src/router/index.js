@@ -18,6 +18,11 @@ const router = createRouter({
       path: '/24shang',
       name: '24shang',
       component: () => import('../views/24shang.vue')
+    },
+    {
+      path: '/24xia',
+      name: '24xia',
+      component: () => import('../views/24xia.vue')
     }
   ]
 })
