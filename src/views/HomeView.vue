@@ -111,7 +111,7 @@ const initSpecialEvent = () => {
     // openDialog('通知', '《关于工学院教师不过儿童节的通知》')
     // openDialog('系统故障', '服务不可用，请刷新重试。')
     // openDialog('温馨提示', '女神节快乐!')
-    // openDialog('寒假', '这日子是越来越有盼头了')
+    // openDialog('寒假', '这日子是越来越有盼头了。')
     // openDialog('温馨提示', '大雪节气，多喝热水。')
     // openDialog('提示', '期末啦，大家都长大啦ww')
     // openDialog('提示', '明天是感恩节。♫ 感恩的心~~ ♫ 感谢有你~~')
