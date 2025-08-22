@@ -247,7 +247,7 @@ const handleClose = () => {
           </td>
           <td rowspan="2" :class="`${weeks > 17 || (weeks > 12 && weeks < 14) ? 'gray' : ''}`">
             <div>Web前端</div>
-            <div>5104</div>
+            <div>应用中心D</div>
             <div>会计5-6班</div>
             <div>{{ weeks < 13 ? '1-12周' : '14-17周' }}</div>
           </td>
