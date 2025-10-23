@@ -18,7 +18,7 @@ const weeks = computed(() => {
   return Math.ceil(days.value / 7)
 })
 
-const chineseList = ['日', '一', '二', '三', '四', '五', '六', '七', '八', '九', '十', '十一', '十二', '十三', '十四', '十五', '十六', '十七', '十八', '十九', '二十', '二十一']
+const chineseList = ['日', '一', '二', '三', '四', '五', '六', '六', '七', '八', '九', '十', '十一', '十二', '十三', '十四', '十五', '十六', '十七', '十八', '十九', '二十', '二十一']
 onMounted(() => {
   initFunc()
   setInterval(() => location.reload(), 1000 * 60 * 60 * 5)
@@ -151,7 +151,7 @@ const handleClose = () => {
           <el-tooltip effect="light" content="08:10 - 08:55" placement="right">
             <td>1</td>
           </el-tooltip>
-          <td rowspan="2" :class="`${weeks > 14 || (weeks < 5 && weeks > 2) ? 'gray' : ''}`">
+          <td rowspan="2" :class="`${weeks > 15 || (weeks < 5 && weeks > 2) ? 'gray' : ''}`">
             <div>云计算导论</div>
             <div>鲲鹏验室C</div>
             <div>专升本7班</div>
@@ -163,11 +163,11 @@ const handleClose = () => {
             <div></div>
             <div></div>
           </td>
-          <td rowspan="2" :class="`${weeks > 18 ? 'gray' : ''}`">
-            <div>数据结构{{ weeks > 14 ? '实验' : '' }}</div>
+          <td rowspan="2" :class="`${weeks > 19 ? 'gray' : ''}`">
+            <div>数据结构{{ weeks > 15 ? '实验' : '' }}</div>
             <div>7403</div>
             <div>计科1-2班</div>
-            <div>{{ weeks < 15 ? '1-14周' : '15-18周' }}</div>
+            <div>{{ weeks < 16 ? '1-14周' : '15-18周' }}</div>
           </td>
           <td rowspan="2">
             <div></div>
@@ -245,11 +245,11 @@ const handleClose = () => {
             <div></div>
             <div></div>
           </td>
-          <td rowspan="2" :class="`${weeks > 17 || (weeks > 12 && weeks < 14) ? 'gray' : ''}`">
+          <td rowspan="2" :class="`${weeks > 18 || (weeks > 13 && weeks < 15) ? 'gray' : ''}`">
             <div>Web前端</div>
             <div>应用中心D</div>
             <div>会计5-6班</div>
-            <div>{{ weeks < 13 ? '1-12周' : '14-17周' }}</div>
+            <div>{{ weeks < 14 ? '1-12周' : '14-17周' }}</div>
           </td>
           <td rowspan="2">
             <div></div>
@@ -345,55 +345,55 @@ const handleClose = () => {
           <td class="br">六</td><td>29</td><td>30</td><td class="red">1</td><td class="red">2</td><td class="red">3</td><td>4</td><td>5</td>
         </tr>
         <tr class="7">
-          <td class="br">七</td><td class="red">6</td><td class="red">7</td><td class="red">8</td><td>9</td><td>10</td><td class="black">11</td><td>12</td>
+          <td class="br">六</td><td class="red">6</td><td class="red">7</td><td class="red">8</td><td>9</td><td>10</td><td class="black">11</td><td>12</td>
         </tr>
         <tr class="8">
-          <td class="br">八</td><td>13</td><td>14</td><td>15</td><td>16</td><td>17</td><td>18</td><td>19</td>
+          <td class="br">七</td><td>13</td><td>14</td><td>15</td><td>16</td><td>17</td><td>18</td><td>19</td>
         </tr>
         <tr class="9">
-          <td class="br">九</td><td>20</td><td>21</td><td>22</td><td>23</td><td>24</td><td>25</td><td>26</td>
+          <td class="br">八</td><td>20</td><td>21</td><td>22</td><td>23</td><td>24</td><td>25</td><td>26</td>
         </tr>
         <tr class="last-tr 10">
-          <td class="br">十</td><td>27</td><td>28</td><td>29</td><td>30</td><td>31</td><td>1</td><td>2</td>
+          <td class="br">九</td><td>27</td><td>28</td><td>29</td><td>30</td><td>31</td><td>1</td><td>2</td>
         </tr>
 
         <tr class="11">
           <td rowspan="4" class="bb br">十一月</td>
-          <td class="br">十一</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td>
+          <td class="br">十</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td>
         </tr>
         <tr class="12">
-          <td class="br">十二</td><td>10</td><td>11</td><td>12</td><td>13</td><td>14</td><td>15</td><td>16</td>
+          <td class="br">十一</td><td>10</td><td>11</td><td>12</td><td>13</td><td>14</td><td>15</td><td>16</td>
         </tr>
         <tr class="13">
-          <td class="br">十三</td><td>17</td><td>18</td><td>19</td><td>20</td><td>21</td><td>22</td><td>23</td>
+          <td class="br">十二</td><td>17</td><td>18</td><td>19</td><td>20</td><td>21</td><td>22</td><td>23</td>
         </tr>
         <tr class="last-tr 14">
-          <td class="br">十四</td><td>24</td><td>25</td><td>26</td><td>27</td><td>28</td><td>29</td><td>30</td>
+          <td class="br">十三</td><td>24</td><td>25</td><td>26</td><td>27</td><td>28</td><td>29</td><td>30</td>
         </tr>
 
         <tr class="15">
           <td rowspan="4" class="bb br">十二月</td>
-          <td class="br">十五</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td>
+          <td class="br">十四</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td>
         </tr>
         <tr class="16">
-          <td class="br">十六</td><td>8</td><td>9</td><td>10</td><td>11</td><td>12</td><td>13</td><td>14</td>
+          <td class="br">十五</td><td>8</td><td>9</td><td>10</td><td>11</td><td>12</td><td>13</td><td>14</td>
         </tr>
         <tr class="17">
-          <td class="br">十七</td><td>15</td><td>16</td><td>17</td><td>18</td><td>19</td><td>20</td><td>21</td>
+          <td class="br">十六</td><td>15</td><td>16</td><td>17</td><td>18</td><td>19</td><td>20</td><td>21</td>
         </tr>
         <tr class="last-tr 18">
-          <td class="br">十八</td><td>22</td><td>23</td><td>24</td><td>25</td><td>26</td><td>27</td><td>28</td>
+          <td class="br">十七</td><td>22</td><td>23</td><td>24</td><td>25</td><td>26</td><td>27</td><td>28</td>
         </tr>
 
         <tr class="19">
           <td rowspan="3" class="br">一月</td>
-          <td class="br">十九</td><td>29</td><td>30</td><td>31</td><td>1</td><td>2</td><td>3</td><td>4</td>
+          <td class="br">十八</td><td>29</td><td>30</td><td>31</td><td>1</td><td>2</td><td>3</td><td>4</td>
         </tr>
         <tr class="20">
-          <td class="br">二十</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td><td>11</td>
+          <td class="br">十九</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td><td>11</td>
         </tr>
         <tr class="21">
-          <td class="br">二十一</td><td>12</td><td>13</td><td>14</td><td>15</td><td>16</td><td>17</td><td>18</td>
+          <td class="br">二十</td><td>12</td><td>13</td><td>14</td><td>15</td><td>16</td><td>17</td><td>18</td>
         </tr>
       </table>
     </el-card>
