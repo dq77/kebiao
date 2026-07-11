@@ -37,8 +37,9 @@ const initFunc = (date) => {
   }
   const trs = document.getElementsByClassName(weeks.value)
   if (trs?.length > 0) {
-    trs[0].childNodes?.forEach(item => {
-      if (item.innerText === now.value.getDate() + '') {
+    const cells = trs[0].querySelectorAll('td')
+    cells.forEach((item) => {
+      if (item.innerText.trim() === now.value.getDate() + '') {
         const classList = ['today']
         if (!date) { classList.push('real') }
         item.classList.add(...classList)
@@ -50,11 +51,12 @@ const initFunc = (date) => {
 
 const addClickFunc = () => {
   const table = xiaoli.value
-  table.childNodes?.forEach((tr, week) => {
-    tr.childNodes?.forEach((td, days) => {
-      const inner = td.innerText - 0 || 'string'
-      if (typeof inner === 'number' ) { // 为日期添加点击事件
-        td.addEventListener("click", function(){
+  const rows = table.querySelectorAll('tbody > tr')
+  rows.forEach((tr, week) => {
+    tr.querySelectorAll('td').forEach((td) => {
+      const inner = Number(td.innerText.trim())
+      if (!Number.isNaN(inner)) { // 为日期添加点击事件
+        td.addEventListener('click', () => {
 
           // 周数对应的月份 0没用是占位 没有第0周 （不同学期不通用，需按照学期修改）
           const monthList = [0, 1, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 4, 5, 5, 5, 5, 6, 6, 6]
@@ -143,263 +145,267 @@ const handleClose = () => {
   <div class="card-content">
     <el-card class="box-card" body-class='card-body'>
       <table class="kebiao-table" cellspacing="0">
-        <tr>
-          <td class="col-title"></td>
-          <td width="19%" :class="`${now.getDay() === 1 ? 'nowweek' : ''}`">周一</td>
-          <td width="19%" :class="`${now.getDay() === 2 ? 'nowweek' : ''}`">周二</td>
-          <td width="19%" :class="`${now.getDay() === 3 ? 'nowweek' : ''}`">周三</td>
-          <td width="19%" :class="`${now.getDay() === 4 ? 'nowweek' : ''}`">周四</td>
-          <td width="19%" :class="`${now.getDay() === 5 ? 'nowweek' : ''}`">周五</td>
-        </tr>
-        <!-- 一二节 -->
-        <tr>
-          <el-tooltip effect="light" content="08:10 - 08:55" placement="right">
-            <td>1</td>
-          </el-tooltip>
-          <td rowspan="2" :class="`${weeks > 19 || weeks === 16 ? 'gray' : ''}`">
-            <div>{{ weeks < 16 ? (weeks > 11 ? 'Web前端实验' : 'Web前端开发') : 'BS系统开发实训'}}</div>
-            <div>{{ weeks < 16 ? '计算中心2区' : '计算中心8区' }}</div>
-            <div>{{ weeks < 16 ? '专升本4-5班' : '专升本3班' }}</div>
-            <div>{{ weeks < 16 ? (weeks > 11 ? '12-15周' : '1-11周') : '17-19周' }}</div>
-          </td>
-          <td rowspan="2">
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-          </td>
-          <td rowspan="2" :class="`${weeks > 19 || weeks < 17 ? 'gray' : ''}`">
-            <div>BS系统开发实训</div>
-            <div>计算中心8区</div>
-            <div>专升本3班</div>
-            <div>17-19周</div>
-          </td>
-          <td rowspan="2" :class="`${weeks !== 19 && weeks !== 17 ? 'gray' : ''}`">
-            <div>监考</div>
-            <div>{{ weeks < 18 ? '7406' : '7202' }}</div>
-            <div>{{ weeks < 18 ? '6月19日' : '7月03日' }}</div>
-            <div>{{ weeks < 18 ? '9-11点' : '9点-10:40' }}</div>
-          </td>
-          <td rowspan="2" :class="`${(weeks > 1 && weeks < 17) || weeks > 19 ? 'gray' : ''}`">
-            <div>{{ weeks < 2 ? 'Web前端开发' : 'BS系统开发实训'}}</div>
-            <div>{{ weeks < 2 ? '计算中心2区' : '计算中心8区' }}</div>
-            <div>{{ weeks < 2 ? '专升本4-5班' : '专升本3班' }}</div>
-            <div>{{ weeks < 2 ? '1周' : '17-19周' }}</div>
-          </td>
-        </tr>
-        <tr>
-          <el-tooltip effect="light" content="09:00 - 09:45" placement="right">
-            <td>2</td>
-          </el-tooltip>
-        </tr>
-        <!-- 三四节 -->
-        <tr>
-          <el-tooltip effect="light" content="10:05 - 10:50" placement="right">
-            <td>3</td>
-          </el-tooltip>
-          <td rowspan="2" :class="`${weeks > 19 || weeks === 16 ? 'gray' : ''}`">
-            <div>{{ weeks < 16 ? (weeks > 11 ? 'Web前端实验' : 'Web前端开发') : 'BS系统开发实训'}}</div>
-            <div>{{ weeks < 16 ? '计算中心2区' : '计算中心8区' }}</div>
-            <div>{{ weeks < 16 ? '专升本7-8班' : '专升本3班' }}</div>
-            <div>{{ weeks < 16 ? (weeks > 11 ? '12-15周' : '1-11周') : '17-19周' }}</div>
-          </td>
-          <td rowspan="2">
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-          </td>
-          <td rowspan="2" :class="`${weeks > 19 || weeks < 17 ? 'gray' : ''}`">
-            <div>BS系统开发实训</div>
-            <div>计算中心8区</div>
-            <div>专升本3班</div>
-            <div>17-19周</div>
-          </td>
-          <td rowspan="2">
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-          </td>
-          <td rowspan="2" :class="`${weeks > 19 || weeks < 17 ? 'gray' : ''}`">
-            <div>BS系统开发实训</div>
-            <div>计算中心8区</div>
-            <div>专升本3班</div>
-            <div>17-19周</div>
-          </td>
-        </tr>
-        <tr>
-          <el-tooltip effect="light" content="10:55 - 11:40" placement="right">
-            <td>4</td>
-          </el-tooltip>
-        </tr>
-        <!-- 五六节 -->
-        <tr>
-          <el-tooltip effect="light" content="13:20 - 14:05" placement="right">
-            <td>5</td>
-          </el-tooltip>
-          <td rowspan="2" :class="`${weeks !== 17 ? 'gray' : ''}`">
-            <div>监考</div>
-            <div>华为102-数通A</div>
-            <div>6月16日</div>
-            <div>14-16点</div>
-          </td>
-          <td rowspan="2" :class="`${weeks > 19 || weeks < 17 ? 'gray' : ''}`">
-            <div>BS系统开发实训</div>
-            <div>计算中心8区</div>
-            <div>专升本3班</div>
-            <div>17-19周</div>
-          </td>
-          <td rowspan="2">
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-          </td>
-          <td rowspan="2" :class="`${(weeks > 19 || weeks < 17) && weeks !== 15 ? 'gray' : ''}`">
-            <div>{{ weeks < 16 ? '监考' : 'BS系统开发实训'}}</div>
-            <div>{{ weeks < 16 ? '计算中心2区' : '计算中心8区' }}</div>
-            <div>{{ weeks < 16 ? '6月5日' : '专升本3班' }}</div>
-            <div>{{ weeks < 16 ? '12:10-13:10' : '17-19周' }}</div>
-          </td>
-          <td rowspan="2" :class="`${weeks !== 1 ? 'gray' : ''}`">
-            <div>Web前端开发</div>
-            <div>计算中心2区</div>
-            <div>专升本7-8班</div>
-            <div>1周</div>
-          </td>
-        </tr>
-        <tr>
-          <el-tooltip effect="light" content="14:10 - 14:55" placement="right">
-            <td>6</td>
-          </el-tooltip>
-        </tr>
-        <!-- 七八节 -->
-        <tr>
-          <el-tooltip effect="light" content="15:15 - 15:55" placement="right">
-            <td>7</td>
-          </el-tooltip>
-          <td rowspan="2" :class="`${weeks !== 3 ? 'gray' : ''}`">
-            <div>培训</div>
-            <div>信息310</div>
-            <div>-</div>
-            <div>3周</div>
-          </td>
-          <td rowspan="2" :class="`${weeks > 19 || weeks < 17 ? 'gray' : ''}`">
-            <div>BS系统开发实训</div>
-            <div>计算中心8区</div>
-            <div>专升本3班</div>
-            <div>17-19周</div>
-          </td>
-          <td rowspan="2">
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-          </td>
-          <td rowspan="2" :class="`${weeks > 19 || (weeks < 17 && weeks !== 15) ? 'gray' : ''}`">
-            <div>{{ weeks < 16 ? '监考' : (weeks < 18 ? '监考/BS实训': 'BS系统开发实训') }}</div>
-            <div>{{ weeks < 16 ? '华为205-鸿蒙B' : (weeks < 18 ? '华为403-鸿蒙D': '计算中心8区') }}</div>
-            <div>{{ weeks < 16 ? '6月5日' : (weeks < 18 ? '6月19日': '专升本3班') }}</div>
-            <div>{{ weeks < 16 ? '14-16点' : (weeks < 18 ? '17:20-19:20': '17-19周') }}</div>
-          </td>
-          <td rowspan="2">
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-          </td>
-        </tr>
-        <tr>
-          <el-tooltip effect="light" content="16:00 - 16:40" placement="right">
-            <td>8</td>
-          </el-tooltip>
-        </tr>
+        <tbody>
+          <tr>
+            <td class="col-title"></td>
+            <td width="19%" :class="`${now.getDay() === 1 ? 'nowweek' : ''}`">周一</td>
+            <td width="19%" :class="`${now.getDay() === 2 ? 'nowweek' : ''}`">周二</td>
+            <td width="19%" :class="`${now.getDay() === 3 ? 'nowweek' : ''}`">周三</td>
+            <td width="19%" :class="`${now.getDay() === 4 ? 'nowweek' : ''}`">周四</td>
+            <td width="19%" :class="`${now.getDay() === 5 ? 'nowweek' : ''}`">周五</td>
+          </tr>
+          <!-- 一二节 -->
+          <tr>
+            <el-tooltip effect="light" content="08:10 - 08:55" placement="right">
+              <td>1</td>
+            </el-tooltip>
+            <td rowspan="2" :class="`${weeks > 19 || weeks === 16 ? 'gray' : ''}`">
+              <div>{{ weeks < 16 ? (weeks > 11 ? 'Web前端实验' : 'Web前端开发') : 'BS系统开发实训'}}</div>
+              <div>{{ weeks < 16 ? '计算中心2区' : '计算中心8区' }}</div>
+              <div>{{ weeks < 16 ? '专升本4-5班' : '专升本3班' }}</div>
+              <div>{{ weeks < 16 ? (weeks > 11 ? '12-15周' : '1-11周') : '17-19周' }}</div>
+            </td>
+            <td rowspan="2">
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+            </td>
+            <td rowspan="2" :class="`${weeks > 19 || weeks < 17 ? 'gray' : ''}`">
+              <div>BS系统开发实训</div>
+              <div>计算中心8区</div>
+              <div>专升本3班</div>
+              <div>17-19周</div>
+            </td>
+            <td rowspan="2" :class="`${weeks !== 19 && weeks !== 17 ? 'gray' : ''}`">
+              <div>监考</div>
+              <div>{{ weeks < 18 ? '7406' : '7202' }}</div>
+              <div>{{ weeks < 18 ? '6月19日' : '7月03日' }}</div>
+              <div>{{ weeks < 18 ? '9-11点' : '9点-10:40' }}</div>
+            </td>
+            <td rowspan="2" :class="`${(weeks > 1 && weeks < 17) || weeks > 19 ? 'gray' : ''}`">
+              <div>{{ weeks < 2 ? 'Web前端开发' : 'BS系统开发实训'}}</div>
+              <div>{{ weeks < 2 ? '计算中心2区' : '计算中心8区' }}</div>
+              <div>{{ weeks < 2 ? '专升本4-5班' : '专升本3班' }}</div>
+              <div>{{ weeks < 2 ? '1周' : '17-19周' }}</div>
+            </td>
+          </tr>
+          <tr>
+            <el-tooltip effect="light" content="09:00 - 09:45" placement="right">
+              <td>2</td>
+            </el-tooltip>
+          </tr>
+          <!-- 三四节 -->
+          <tr>
+            <el-tooltip effect="light" content="10:05 - 10:50" placement="right">
+              <td>3</td>
+            </el-tooltip>
+            <td rowspan="2" :class="`${weeks > 19 || weeks === 16 ? 'gray' : ''}`">
+              <div>{{ weeks < 16 ? (weeks > 11 ? 'Web前端实验' : 'Web前端开发') : 'BS系统开发实训'}}</div>
+              <div>{{ weeks < 16 ? '计算中心2区' : '计算中心8区' }}</div>
+              <div>{{ weeks < 16 ? '专升本7-8班' : '专升本3班' }}</div>
+              <div>{{ weeks < 16 ? (weeks > 11 ? '12-15周' : '1-11周') : '17-19周' }}</div>
+            </td>
+            <td rowspan="2">
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+            </td>
+            <td rowspan="2" :class="`${weeks > 19 || weeks < 17 ? 'gray' : ''}`">
+              <div>BS系统开发实训</div>
+              <div>计算中心8区</div>
+              <div>专升本3班</div>
+              <div>17-19周</div>
+            </td>
+            <td rowspan="2">
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+            </td>
+            <td rowspan="2" :class="`${weeks > 19 || weeks < 17 ? 'gray' : ''}`">
+              <div>BS系统开发实训</div>
+              <div>计算中心8区</div>
+              <div>专升本3班</div>
+              <div>17-19周</div>
+            </td>
+          </tr>
+          <tr>
+            <el-tooltip effect="light" content="10:55 - 11:40" placement="right">
+              <td>4</td>
+            </el-tooltip>
+          </tr>
+          <!-- 五六节 -->
+          <tr>
+            <el-tooltip effect="light" content="13:20 - 14:05" placement="right">
+              <td>5</td>
+            </el-tooltip>
+            <td rowspan="2" :class="`${weeks !== 17 ? 'gray' : ''}`">
+              <div>监考</div>
+              <div>华为102-数通A</div>
+              <div>6月16日</div>
+              <div>14-16点</div>
+            </td>
+            <td rowspan="2" :class="`${weeks > 19 || weeks < 17 ? 'gray' : ''}`">
+              <div>BS系统开发实训</div>
+              <div>计算中心8区</div>
+              <div>专升本3班</div>
+              <div>17-19周</div>
+            </td>
+            <td rowspan="2">
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+            </td>
+            <td rowspan="2" :class="`${(weeks > 19 || weeks < 17) && weeks !== 15 ? 'gray' : ''}`">
+              <div>{{ weeks < 16 ? '监考' : 'BS系统开发实训'}}</div>
+              <div>{{ weeks < 16 ? '计算中心2区' : '计算中心8区' }}</div>
+              <div>{{ weeks < 16 ? '6月5日' : '专升本3班' }}</div>
+              <div>{{ weeks < 16 ? '12:10-13:10' : '17-19周' }}</div>
+            </td>
+            <td rowspan="2" :class="`${weeks !== 1 ? 'gray' : ''}`">
+              <div>Web前端开发</div>
+              <div>计算中心2区</div>
+              <div>专升本7-8班</div>
+              <div>1周</div>
+            </td>
+          </tr>
+          <tr>
+            <el-tooltip effect="light" content="14:10 - 14:55" placement="right">
+              <td>6</td>
+            </el-tooltip>
+          </tr>
+          <!-- 七八节 -->
+          <tr>
+            <el-tooltip effect="light" content="15:15 - 15:55" placement="right">
+              <td>7</td>
+            </el-tooltip>
+            <td rowspan="2" :class="`${weeks !== 3 ? 'gray' : ''}`">
+              <div>培训</div>
+              <div>信息310</div>
+              <div>-</div>
+              <div>3周</div>
+            </td>
+            <td rowspan="2" :class="`${weeks > 19 || weeks < 17 ? 'gray' : ''}`">
+              <div>BS系统开发实训</div>
+              <div>计算中心8区</div>
+              <div>专升本3班</div>
+              <div>17-19周</div>
+            </td>
+            <td rowspan="2">
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+            </td>
+            <td rowspan="2" :class="`${weeks > 19 || (weeks < 17 && weeks !== 15) ? 'gray' : ''}`">
+              <div>{{ weeks < 16 ? '监考' : (weeks < 18 ? '监考/BS实训': 'BS系统开发实训') }}</div>
+              <div>{{ weeks < 16 ? '华为205-鸿蒙B' : (weeks < 18 ? '华为403-鸿蒙D': '计算中心8区') }}</div>
+              <div>{{ weeks < 16 ? '6月5日' : (weeks < 18 ? '6月19日': '专升本3班') }}</div>
+              <div>{{ weeks < 16 ? '14-16点' : (weeks < 18 ? '17:20-19:20': '17-19周') }}</div>
+            </td>
+            <td rowspan="2">
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+            </td>
+          </tr>
+          <tr>
+            <el-tooltip effect="light" content="16:00 - 16:40" placement="right">
+              <td>8</td>
+            </el-tooltip>
+          </tr>
+        </tbody>
       </table>
     </el-card>
     <div class="center-block"><br></div>
     <el-card class="box-card" body-class='card-body'>
       <table class="xiaoli-table" ref="xiaoli" cellspacing="0">
-        <tr class="last-tr">
-          <td class="br">月份</td>
-          <td class="br">教学周</td>
-          <td>周一</td><td>周二</td><td>周三</td><td>周四</td><td>周五</td><td>周六</td><td>周日</td>
-        </tr>
+        <tbody>
+          <tr class="last-tr">
+            <td class="br">月份</td>
+            <td class="br">教学周</td>
+            <td>周一</td><td>周二</td><td>周三</td><td>周四</td><td>周五</td><td>周六</td><td>周日</td>
+          </tr>
 
-        <tr class="last-tr 1">
-          <td class="br">二月</td>
-          <td class="br">一</td><td>24</td><td>25</td><td>26</td><td>27</td><td>28</td><td>1</td><td>2</td>
-        </tr>
+          <tr class="last-tr 1">
+            <td class="br">二月</td>
+            <td class="br">一</td><td>24</td><td>25</td><td>26</td><td>27</td><td>28</td><td>1</td><td>2</td>
+          </tr>
 
-        <tr class="2">
-          <td rowspan="4" class="bb br">三月</td>
-          <td class="br">二</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td>
-        </tr>
-        <tr class="3">
-          <td class="br">三</td><td>10</td><td>11</td><td>12</td><td>13</td><td>14</td><td>15</td><td>16</td>
-        </tr>
-        <tr class="4">
-          <td class="br">四</td><td>17</td><td>18</td><td>19</td><td>20</td><td>21</td><td>22</td><td>23</td>
-        </tr>
-        <tr class="last-tr 5">
-          <td class="br">五</td><td>24</td><td>25</td><td>26</td><td>27</td><td>28</td><td>29</td><td>30</td>
-        </tr>
+          <tr class="2">
+            <td rowspan="4" class="bb br">三月</td>
+            <td class="br">二</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td>
+          </tr>
+          <tr class="3">
+            <td class="br">三</td><td>10</td><td>11</td><td>12</td><td>13</td><td>14</td><td>15</td><td>16</td>
+          </tr>
+          <tr class="4">
+            <td class="br">四</td><td>17</td><td>18</td><td>19</td><td>20</td><td>21</td><td>22</td><td>23</td>
+          </tr>
+          <tr class="last-tr 5">
+            <td class="br">五</td><td>24</td><td>25</td><td>26</td><td>27</td><td>28</td><td>29</td><td>30</td>
+          </tr>
 
-        <tr class="6">
-          <td rowspan="4" class="bb br">四月</td>
-          <td class="br">六</td><td>31</td><td>1</td><td>2</td><td>3</td><td class="red">4</td><td>5</td><td>6</td>
-        </tr>
-        <tr class="7">
-          <td class="br">七</td><td>7</td><td>8</td><td>9</td><td>10</td><td>11</td><td>12</td><td>13</td>
-        </tr>
-        <tr class="8">
-          <td class="br">八</td><td>14</td><td>15</td><td>16</td><td>17</td><td>18</td><td>19</td><td>20</td>
-        </tr>
-        <tr class="last-tr 9">
-          <td class="br">九</td><td class="black">21</td><td>22</td><td>23</td><td>24</td><td>25</td><td>26</td><td class="black">27</td>
-        </tr>
+          <tr class="6">
+            <td rowspan="4" class="bb br">四月</td>
+            <td class="br">六</td><td>31</td><td>1</td><td>2</td><td>3</td><td class="red">4</td><td>5</td><td>6</td>
+          </tr>
+          <tr class="7">
+            <td class="br">七</td><td>7</td><td>8</td><td>9</td><td>10</td><td>11</td><td>12</td><td>13</td>
+          </tr>
+          <tr class="8">
+            <td class="br">八</td><td>14</td><td>15</td><td>16</td><td>17</td><td>18</td><td>19</td><td>20</td>
+          </tr>
+          <tr class="last-tr 9">
+            <td class="br">九</td><td class="black">21</td><td>22</td><td>23</td><td>24</td><td>25</td><td>26</td><td class="black">27</td>
+          </tr>
 
-        <tr class="10">
-          <td rowspan="5" class="bb br">五月</td>
-          <td class="br">十</td><td>28</td><td>29</td><td>30</td><td class="red">1</td><td class="red">2</td><td class="red">3</td><td>4</td>
-        </tr>
-        <tr class="11">
-          <td class="br">十一</td><td class="red">5</td><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td><td class="black">11</td>
-        </tr>
-        <tr class="12">
-          <td class="br">十二</td><td>12</td><td>13</td><td>14</td><td>15</td><td>16</td><td>17</td><td>18</td>
-        </tr>
-        <tr class="13">
-          <td class="br">十三</td><td>19</td><td>20</td><td>21</td><td>22</td><td>23</td><td>24</td><td>25</td>
-        </tr>
-        <tr class="last-tr 14">
-          <td class="br">十四</td><td>26</td><td>27</td><td>28</td><td>29</td><td>30</td><td>31</td><td>1</td>
-        </tr>
+          <tr class="10">
+            <td rowspan="5" class="bb br">五月</td>
+            <td class="br">十</td><td>28</td><td>29</td><td>30</td><td class="red">1</td><td class="red">2</td><td class="red">3</td><td>4</td>
+          </tr>
+          <tr class="11">
+            <td class="br">十一</td><td class="red">5</td><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td><td class="black">11</td>
+          </tr>
+          <tr class="12">
+            <td class="br">十二</td><td>12</td><td>13</td><td>14</td><td>15</td><td>16</td><td>17</td><td>18</td>
+          </tr>
+          <tr class="13">
+            <td class="br">十三</td><td>19</td><td>20</td><td>21</td><td>22</td><td>23</td><td>24</td><td>25</td>
+          </tr>
+          <tr class="last-tr 14">
+            <td class="br">十四</td><td>26</td><td>27</td><td>28</td><td>29</td><td>30</td><td>31</td><td>1</td>
+          </tr>
 
-        <tr class="15">
-          <td rowspan="4" class="bb br">六月</td>
-          <td class="br">十五</td><td class="red">2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td>
-        </tr>
-        <tr class="16">
-          <td class="br">十六</td><td>9</td><td>10</td><td>11</td><td>12</td><td>13</td><td>14</td><td>15</td>
-        </tr>
-        <tr class="17">
-          <td class="br">十七</td><td>16</td><td>17</td><td>18</td><td>19</td><td>20</td><td>21</td><td>22</td>
-        </tr>
-        <tr class="last-tr 18">
-          <td class="br">十八</td><td>23</td><td>24</td><td>25</td><td>26</td><td>27</td><td>28</td><td>29</td>
-        </tr>
+          <tr class="15">
+            <td rowspan="4" class="bb br">六月</td>
+            <td class="br">十五</td><td class="red">2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td>
+          </tr>
+          <tr class="16">
+            <td class="br">十六</td><td>9</td><td>10</td><td>11</td><td>12</td><td>13</td><td>14</td><td>15</td>
+          </tr>
+          <tr class="17">
+            <td class="br">十七</td><td>16</td><td>17</td><td>18</td><td>19</td><td>20</td><td>21</td><td>22</td>
+          </tr>
+          <tr class="last-tr 18">
+            <td class="br">十八</td><td>23</td><td>24</td><td>25</td><td>26</td><td>27</td><td>28</td><td>29</td>
+          </tr>
 
-        <tr class="19">
-          <td rowspan="3" class="br">七月</td>
-          <td class="br">十九</td><td>30</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td>
-        </tr>
-        <tr class="20">
-          <td class="br">二十</td><td>7</td><td>8</td><td>9</td><td>10</td><td>11</td><td>12</td><td>13</td>
-        </tr>
-        <tr class="21">
-          <td class="br">二十一</td><td>14</td><td>15</td><td>16</td><td>17</td><td>18</td><td>19</td><td>20</td>
-        </tr>
+          <tr class="19">
+            <td rowspan="3" class="br">七月</td>
+            <td class="br">十九</td><td>30</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td>
+          </tr>
+          <tr class="20">
+            <td class="br">二十</td><td>7</td><td>8</td><td>9</td><td>10</td><td>11</td><td>12</td><td>13</td>
+          </tr>
+          <tr class="21">
+            <td class="br">二十一</td><td>14</td><td>15</td><td>16</td><td>17</td><td>18</td><td>19</td><td>20</td>
+          </tr>
+        </tbody>
       </table>
     </el-card>
   </div>
