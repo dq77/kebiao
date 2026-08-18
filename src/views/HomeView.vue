@@ -63,7 +63,7 @@ const addClickFunc = () => {
           let month = monthList[week]
 
           // 部分周存在跨月 需特殊处理 （不同学期不通用，需按照学期修改）
-          if ((week === 6 && inner > 27) || (week === 19 && inner > 27) || (week === 15 && inner > 29)) {
+          if ((week === 2 && inner > 30) || (week === 6 && inner > 27) || (week === 19 && inner > 27) || (week === 15 && inner > 29)) {
             month -= 1
           } else if ((week === 10 && inner < 2)) {
             month += 1
@@ -140,178 +140,180 @@ const handleClose = () => {
   <div class="card-content">
     <el-card class="box-card" body-class='card-body'>
       <table class="kebiao-table" cellspacing="0">
-        <tr>
-          <td class="col-title"></td>
-          <td width="19%" :class="`${now.getDay() === 1 ? 'nowweek' : ''}`">周一</td>
-          <td width="19%" :class="`${now.getDay() === 2 ? 'nowweek' : ''}`">周二</td>
-          <td width="19%" :class="`${now.getDay() === 3 ? 'nowweek' : ''}`">周三</td>
-          <td width="19%" :class="`${now.getDay() === 4 ? 'nowweek' : ''}`">周四</td>
-          <td width="19%" :class="`${now.getDay() === 5 ? 'nowweek' : ''}`">周五</td>
-        </tr>
-        <!-- 一二节 -->
-        <tr>
-          <el-tooltip effect="light" content="08:10 - 08:55" placement="right">
-            <td>1</td>
-          </el-tooltip>
+        <tbody>
+          <tr>
+            <td class="col-title"></td>
+            <td width="19%" :class="`${now.getDay() === 1 ? 'nowweek' : ''}`">周一</td>
+            <td width="19%" :class="`${now.getDay() === 2 ? 'nowweek' : ''}`">周二</td>
+            <td width="19%" :class="`${now.getDay() === 3 ? 'nowweek' : ''}`">周三</td>
+            <td width="19%" :class="`${now.getDay() === 4 ? 'nowweek' : ''}`">周四</td>
+            <td width="19%" :class="`${now.getDay() === 5 ? 'nowweek' : ''}`">周五</td>
+          </tr>
+          <!-- 一二节 -->
+          <tr>
+            <el-tooltip effect="light" content="08:10 - 08:55" placement="right">
+              <td>1</td>
+            </el-tooltip>
           <td rowspan="2">
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-          </td>
-          <td rowspan="2">
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-          </td>
-          <td rowspan="2" :class="`${weeks > 18 ? 'gray' : ''}`">
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+            </td>
+            <td rowspan="2">
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+            </td>
+          <td rowspan="2" :class="`${weeks > 19 ? 'gray' : ''}`">
             <div>数据结构</div>
             <div>华为103</div>
             <div>25计科1班</div>
-            <div>{{ weeks > 16 ? '17-18周' : '1-16周' }}</div>
-          </td>
-          <td rowspan="2">
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-          </td>
-          <td rowspan="2" :class="`${weeks > 17 || weeks < 14 ? 'gray' : ''}`">
+            <div>{{ weeks > 17 ? '17-18周' : '1-16周' }}</div>
+            </td>
+            <td rowspan="2">
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+            </td>
+          <td rowspan="2" :class="`${weeks > 18 || weeks < 15 ? 'gray' : ''}`">
             <div>数据结构</div>
             <div>华为103</div>
             <div>25计科3班</div>
-            <div>{{ weeks > 15 ? '16-17周' : '14-15周' }}</div>
-          </td>
-        </tr>
-        <tr>
-          <el-tooltip effect="light" content="09:00 - 09:45" placement="right">
-            <td>2</td>
-          </el-tooltip>
-        </tr>
-        <!-- 三四节 -->
-        <tr>
-          <el-tooltip effect="light" content="10:05 - 10:50" placement="right">
-            <td>3</td>
-          </el-tooltip>
-          <td rowspan="2">
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-          </td>
-          <td rowspan="2">
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-          </td>
-          <td rowspan="2" :class="`${weeks > 18 ? 'gray' : ''}`">
+            <div>{{ weeks > 16 ? '16-17周' : '14-15周' }}</div>
+            </td>
+          </tr>
+          <tr>
+            <el-tooltip effect="light" content="09:00 - 09:45" placement="right">
+              <td>2</td>
+            </el-tooltip>
+          </tr>
+          <!-- 三四节 -->
+          <tr>
+            <el-tooltip effect="light" content="10:05 - 10:50" placement="right">
+              <td>3</td>
+            </el-tooltip>
+            <td rowspan="2">
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+            </td>
+            <td rowspan="2">
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+            </td>
+          <td rowspan="2" :class="`${weeks > 19 ? 'gray' : ''}`">
             <div>数据结构</div>
             <div>华为103</div>
             <div>25计科3班</div>
-            <div>{{ weeks > 16 ? '17-18周' : '1-16周' }}</div>
-          </td>
-          <td rowspan="2">
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-          </td>
-          <td rowspan="2" :class="`${weeks > 17 || weeks < 14 ? 'gray' : ''}`">
+            <div>{{ weeks > 17 ? '17-18周' : '1-16周' }}</div>
+            </td>
+            <td rowspan="2">
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+            </td>
+          <td rowspan="2" :class="`${weeks > 18 || weeks < 15 ? 'gray' : ''}`">
             <div>数据结构</div>
             <div>华为103</div>
             <div>25计科1班</div>
-            <div>{{ weeks > 15 ? '16-17周' : '14-15周' }}</div>
+            <div>{{ weeks > 16 ? '16-17周' : '14-15周' }}</div>
           </td>
-        </tr>
-        <tr>
-          <el-tooltip effect="light" content="10:55 - 11:40" placement="right">
-            <td>4</td>
-          </el-tooltip>
-        </tr>
-        <!-- 五六节 -->
-        <tr>
-          <el-tooltip effect="light" content="13:20 - 14:05" placement="right">
-            <td>5</td>
-          </el-tooltip>
-          <td rowspan="2" :class="`${weeks > 16 || weeks === 12 ? 'gray' : ''}`">
+          </tr>
+          <tr>
+            <el-tooltip effect="light" content="10:55 - 11:40" placement="right">
+              <td>4</td>
+            </el-tooltip>
+          </tr>
+          <!-- 五六节 -->
+          <tr>
+            <el-tooltip effect="light" content="13:20 - 14:05" placement="right">
+              <td>5</td>
+            </el-tooltip>
+          <td rowspan="2" :class="`${weeks > 17 || weeks === 13 ? 'gray' : ''}`">
             <div>前端技术</div>
             <div>7408</div>
             <div>25金融</div>
-            <div>{{ weeks > 11 ? '13-16周' : '1-11周' }}</div>
+            <div>{{ weeks > 12 ? '13-16周' : '1-11周' }}</div>
           </td>
+            <td rowspan="2">
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+            </td>
+            <td rowspan="2">
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+            </td>
+            <td rowspan="2">
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+            </td>
+            <td rowspan="2">
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+            </td>
+          </tr>
+          <tr>
+            <el-tooltip effect="light" content="14:10 - 14:55" placement="right">
+              <td>6</td>
+            </el-tooltip>
+          </tr>
+          <!-- 七八节 -->
+          <tr>
+            <el-tooltip effect="light" content="15:15 - 15:55" placement="right">
+              <td>7</td>
+            </el-tooltip>
+            <td rowspan="2">
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+            </td>
+            <td rowspan="2">
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+            </td>
+            <td rowspan="2">
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+            </td>
           <td rowspan="2">
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-          </td>
-          <td rowspan="2">
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-          </td>
-          <td rowspan="2">
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-          </td>
-          <td rowspan="2">
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-          </td>
-        </tr>
-        <tr>
-          <el-tooltip effect="light" content="14:10 - 14:55" placement="right">
-            <td>6</td>
-          </el-tooltip>
-        </tr>
-        <!-- 七八节 -->
-        <tr>
-          <el-tooltip effect="light" content="15:15 - 15:55" placement="right">
-            <td>7</td>
-          </el-tooltip>
-          <td rowspan="2">
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-          </td>
-          <td rowspan="2">
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-          </td>
-          <td rowspan="2">
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-          </td>
-          <td rowspan="2">
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-          </td>
-          <td rowspan="2">
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-          </td>
-        </tr>
-        <tr>
-          <el-tooltip effect="light" content="16:00 - 16:40" placement="right">
-            <td>8</td>
-          </el-tooltip>
-        </tr>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+            </td>
+            <td rowspan="2">
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+            </td>
+          </tr>
+          <tr>
+            <el-tooltip effect="light" content="16:00 - 16:40" placement="right">
+              <td>8</td>
+            </el-tooltip>
+          </tr>
+        </tbody>
       </table>
     </el-card>
     <div class="center-block"><br></div>
