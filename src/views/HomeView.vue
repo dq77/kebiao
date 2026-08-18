@@ -2,7 +2,7 @@
 import { ref, onMounted, computed } from 'vue'
 
 const xiaoli = ref()
-const start = new Date(2025,7,25,0,0,0,0) // 起始日期 2025-08-25 （不同学期不通用，需按照学期修改）
+const start = new Date(2026,7,24,0,0,0,0) // 起始日期 2025-08-24 （不同学期不通用，需按照学期修改）
 let now = ref(new Date())
 if (now.value.getTime() < start.getTime() || now.value.getTime() > start.getTime() + (1000 * 60 * 60 * 24 * 180)) {
   now.value = new Date(start.getTime() + 1)
@@ -37,8 +37,9 @@ const initFunc = (date) => {
   }
   const trs = document.getElementsByClassName(weeks.value)
   if (trs?.length > 0) {
-    trs[0].childNodes?.forEach(item => {
-      if (item.innerText === now.value.getDate() + '') {
+    const cells = trs[0].querySelectorAll('td')
+    cells.forEach((item) => {
+      if (item.innerText.trim() === now.value.getDate() + '') {
         const classList = ['today']
         if (!date) { classList.push('real') }
         item.classList.add(...classList)
@@ -50,23 +51,24 @@ const initFunc = (date) => {
 
 const addClickFunc = () => {
   const table = xiaoli.value
-  table.childNodes?.forEach((tr, week) => {
-    tr.childNodes?.forEach((td, days) => {
-      const inner = td.innerText - 0 || 'string'
-      if (typeof inner === 'number' ) { // 为日期添加点击事件
-        td.addEventListener("click", function(){
-
+  const rows = table.querySelectorAll('tbody > tr')
+  rows.forEach((tr, week) => {
+    tr.querySelectorAll('td').forEach((td) => {
+      const inner = Number(td.innerText.trim())
+      if (!Number.isNaN(inner)) { // 为日期添加点击事件
+        td.addEventListener('click', () => {
+          
           // 周数对应的月份 0没用是占位 没有第0周 （不同学期不通用，需按照学期修改）
           const monthList = [0, 7, 8, 8, 8, 8, 9, 9, 9, 9, 9, 10, 10, 10, 10, 11, 11, 11, 11, 12, 12, 12]
           let month = monthList[week]
 
           // 部分周存在跨月 需特殊处理 （不同学期不通用，需按照学期修改）
-          if ((week === 6 && inner > 28) || (week === 19 && inner > 28)) {
+          if ((week === 6 && inner > 27) || (week === 19 && inner > 27) || (week === 15 && inner > 29)) {
             month -= 1
-          } else if ((week === 10 && inner < 3)) {
+          } else if ((week === 10 && inner < 2)) {
             month += 1
           }
-          const day = new Date(start.getFullYear(), month, inner,0,0,1,0)
+          const day = new Date(start.getFullYear(), month, inner, 0, 0, 1, 0)
           initFunc(day)
         })
       }
@@ -315,86 +317,88 @@ const handleClose = () => {
     <div class="center-block"><br></div>
     <el-card class="box-card" body-class='card-body'>
       <table class="xiaoli-table" ref="xiaoli" cellspacing="0">
-        <tr class="last-tr">
-          <td class="br">月份</td>
-          <td class="br">教学周</td>
-          <td>周一</td><td>周二</td><td>周三</td><td>周四</td><td>周五</td><td>周六</td><td>周日</td>
-        </tr>
+        <tbody>
+          <tr class="last-tr">
+            <td class="br">月份</td>
+            <td class="br">教学周</td>
+            <td>周一</td><td>周二</td><td>周三</td><td>周四</td><td>周五</td><td>周六</td><td>周日</td>
+          </tr>
 
-        <tr class="last-tr 1">
-          <td class="br">八月</td>
-          <td class="br">一</td><td>25</td><td>26</td><td>27</td><td>28</td><td>29</td><td>30</td><td>31</td>
-        </tr>
+          <tr class="last-tr 1">
+            <td class="br">八月</td>
+            <td class="br">一</td><td>24</td><td>25</td><td>26</td><td>27</td><td>28</td><td>29</td><td>30</td>
+          </tr>
 
-        <tr class="2">
-          <td rowspan="4" class="bb br">九月</td>
-          <td class="br">二</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td>
-        </tr>
-        <tr class="3">
-          <td class="br">三</td><td>8</td><td>9</td><td>10</td><td>11</td><td>12</td><td>13</td><td>14</td>
-        </tr>
-        <tr class="4">
-          <td class="br">四</td><td>15</td><td>16</td><td>17</td><td>18</td><td>19</td><td>20</td><td>21</td>
-        </tr>
-        <tr class="last-tr 5">
-          <td class="br">五</td><td>22</td><td>23</td><td>24</td><td>25</td><td>26</td><td>27</td><td class="black">28</td>
-        </tr>
+          <tr class="2">
+            <td rowspan="4" class="bb br">九月</td>
+            <td class="br">二</td><td>31</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td>
+          </tr>
+          <tr class="3">
+            <td class="br">三</td><td>7</td><td>8</td><td>9</td><td>10</td><td>11</td><td>12</td><td>13</td>
+          </tr>
+          <tr class="4">
+            <td class="br">四</td><td>14</td><td>15</td><td>16</td><td>17</td><td>18</td><td>19</td><td class="black">20</td>
+          </tr>
+          <tr class="last-tr 5">
+            <td class="br">五</td><td>21</td><td>22</td><td>23</td><td>24</td><td class="red">25</td><td>26</td><td>27</td>
+          </tr>
 
-        <tr class="6">
-          <td rowspan="5" class="bb br">十月</td>
-          <td class="br">六</td><td>29</td><td>30</td><td class="red">1</td><td class="red">2</td><td class="red">3</td><td>4</td><td>5</td>
-        </tr>
-        <tr class="7">
-          <td class="br">六</td><td class="red">6</td><td class="red">7</td><td class="red">8</td><td>9</td><td>10</td><td class="black">11</td><td>12</td>
-        </tr>
-        <tr class="8">
-          <td class="br">七</td><td>13</td><td>14</td><td>15</td><td>16</td><td>17</td><td>18</td><td>19</td>
-        </tr>
-        <tr class="9">
-          <td class="br">八</td><td>20</td><td>21</td><td>22</td><td>23</td><td>24</td><td>25</td><td>26</td>
-        </tr>
-        <tr class="last-tr 10">
-          <td class="br">九</td><td>27</td><td>28</td><td>29</td><td>30</td><td>31</td><td>1</td><td>2</td>
-        </tr>
+          <tr class="6">
+            <td rowspan="5" class="bb br">十月</td>
+            <td class="br">六</td><td>28</td><td>29</td><td>30</td><td class="red">1</td><td class="red">2</td><td class="red">3</td><td>4</td>
+          </tr>
+          <tr class="7">
+            <td class="br">六</td><td class="red">5</td><td class="red">6</td><td class="red">7</td><td>8</td><td>9</td><td class="black">10</td><td>11</td>
+          </tr>
+          <tr class="8">
+            <td class="br">七</td><td>12</td><td>13</td><td>14</td><td>15</td><td>16</td><td>17</td><td>18</td>
+          </tr>
+          <tr class="9">
+            <td class="br">八</td><td>19</td><td>20</td><td>21</td><td>22</td><td>23</td><td>24</td><td>25</td>
+          </tr>
+          <tr class="last-tr 10">
+            <td class="br">九</td><td>26</td><td>27</td><td>28</td><td>29</td><td>30</td><td>31</td><td>1</td>
+          </tr>
 
-        <tr class="11">
-          <td rowspan="4" class="bb br">十一月</td>
-          <td class="br">十</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td>
-        </tr>
-        <tr class="12">
-          <td class="br">十一</td><td>10</td><td>11</td><td>12</td><td>13</td><td>14</td><td>15</td><td>16</td>
-        </tr>
-        <tr class="13">
-          <td class="br">十二</td><td>17</td><td>18</td><td>19</td><td>20</td><td>21</td><td>22</td><td>23</td>
-        </tr>
-        <tr class="last-tr 14">
-          <td class="br">十三</td><td>24</td><td>25</td><td>26</td><td>27</td><td>28</td><td>29</td><td>30</td>
-        </tr>
+          <tr class="11">
+            <td rowspan="4" class="bb br">十一月</td>
+            <td class="br">十</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td>
+          </tr>
+          <tr class="12">
+            <td class="br">十一</td><td>9</td><td>10</td><td>11</td><td>12</td><td>13</td><td>14</td><td>15</td>
+          </tr>
+          <tr class="13">
+            <td class="br">十二</td><td>16</td><td>17</td><td>18</td><td>19</td><td>20</td><td>21</td><td>22</td>
+          </tr>
+          <tr class="last-tr 14">
+            <td class="br">十三</td><td>23</td><td>24</td><td>25</td><td>26</td><td>27</td><td>28</td><td>29</td>
+          </tr>
 
-        <tr class="15">
-          <td rowspan="4" class="bb br">十二月</td>
-          <td class="br">十四</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td>
-        </tr>
-        <tr class="16">
-          <td class="br">十五</td><td>8</td><td>9</td><td>10</td><td>11</td><td>12</td><td>13</td><td>14</td>
-        </tr>
-        <tr class="17">
-          <td class="br">十六</td><td>15</td><td>16</td><td>17</td><td>18</td><td>19</td><td>20</td><td>21</td>
-        </tr>
-        <tr class="last-tr 18">
-          <td class="br">十七</td><td>22</td><td>23</td><td>24</td><td>25</td><td>26</td><td>27</td><td>28</td>
-        </tr>
+          <tr class="15">
+            <td rowspan="4" class="bb br">十二月</td>
+            <td class="br">十四</td><td>30</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td>
+          </tr>
+          <tr class="16">
+            <td class="br">十五</td><td>7</td><td>8</td><td>9</td><td>10</td><td>11</td><td>12</td><td>13</td>
+          </tr>
+          <tr class="17">
+            <td class="br">十六</td><td>14</td><td>15</td><td>16</td><td>17</td><td>18</td><td>19</td><td>20</td>
+          </tr>
+          <tr class="last-tr 18">
+            <td class="br">十七</td><td>21</td><td>22</td><td>23</td><td>24</td><td>25</td><td>26</td><td>27</td>
+          </tr>
 
-        <tr class="19">
-          <td rowspan="3" class="br">一月</td>
-          <td class="br">十八</td><td>29</td><td>30</td><td>31</td><td>1</td><td>2</td><td>3</td><td>4</td>
-        </tr>
-        <tr class="20">
-          <td class="br">十九</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td><td>11</td>
-        </tr>
-        <tr class="21">
-          <td class="br">二十</td><td>12</td><td>13</td><td>14</td><td>15</td><td>16</td><td>17</td><td>18</td>
-        </tr>
+          <tr class="19">
+            <td rowspan="3" class="br">一月</td>
+            <td class="br">十八</td><td>28</td><td>29</td><td>30</td><td>31</td><td>1</td><td>2</td><td>3</td>
+          </tr>
+          <tr class="20">
+            <td class="br">十九</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td>
+          </tr>
+          <tr class="21">
+            <td class="br">二十</td><td>11</td><td>12</td><td>13</td><td>14</td><td>15</td><td>16</td><td>17</td>
+          </tr>
+        </tbody>
       </table>
     </el-card>
   </div>
