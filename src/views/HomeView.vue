@@ -151,24 +151,6 @@ const handleClose = () => {
           <el-tooltip effect="light" content="08:10 - 08:55" placement="right">
             <td>1</td>
           </el-tooltip>
-          <td rowspan="2" :class="`${weeks > 15 || (weeks < 5 && weeks > 2) ? 'gray' : ''}`">
-            <div>云计算导论</div>
-            <div>鲲鹏验室C</div>
-            <div>专升本7班</div>
-            <div>{{ weeks < 3 ? '1-2周' : '5-14周' }}</div>
-          </td>
-          <td rowspan="2">
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-          </td>
-          <td rowspan="2" :class="`${weeks > 19 ? 'gray' : ''}`">
-            <div>数据结构{{ weeks > 15 ? '实验' : '' }}</div>
-            <div>7403</div>
-            <div>计科1-2班</div>
-            <div>{{ weeks < 16 ? '1-14周' : '15-18周' }}</div>
-          </td>
           <td rowspan="2">
             <div></div>
             <div></div>
@@ -180,6 +162,24 @@ const handleClose = () => {
             <div></div>
             <div></div>
             <div></div>
+          </td>
+          <td rowspan="2" :class="`${weeks > 18 ? 'gray' : ''}`">
+            <div>数据结构</div>
+            <div>华为103</div>
+            <div>25计科1班</div>
+            <div>{{ weeks > 16 ? '17-18周' : '1-16周' }}</div>
+          </td>
+          <td rowspan="2">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+          </td>
+          <td rowspan="2" :class="`${weeks > 17 || weeks < 14 ? 'gray' : ''}`">
+            <div>数据结构</div>
+            <div>华为103</div>
+            <div>25计科3班</div>
+            <div>{{ weeks > 15 ? '16-17周' : '14-15周' }}</div>
           </td>
         </tr>
         <tr>
@@ -204,23 +204,23 @@ const handleClose = () => {
             <div></div>
             <div></div>
           </td>
-          <td rowspan="2">
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-          </td>
-          <td rowspan="2" :class="`${weeks > 4 ? 'gray' : ''}`">
-            <div>云计算导论</div>
-            <div>鲲鹏验室C</div>
-            <div>专升本7班</div>
-            <div>1-4周</div>
+          <td rowspan="2" :class="`${weeks > 18 ? 'gray' : ''}`">
+            <div>数据结构</div>
+            <div>华为103</div>
+            <div>25计科3班</div>
+            <div>{{ weeks > 16 ? '17-18周' : '1-16周' }}</div>
           </td>
           <td rowspan="2">
             <div></div>
             <div></div>
             <div></div>
             <div></div>
+          </td>
+          <td rowspan="2" :class="`${weeks > 17 || weeks < 14 ? 'gray' : ''}`">
+            <div>数据结构</div>
+            <div>华为103</div>
+            <div>25计科1班</div>
+            <div>{{ weeks > 15 ? '16-17周' : '14-15周' }}</div>
           </td>
         </tr>
         <tr>
@@ -233,11 +233,11 @@ const handleClose = () => {
           <el-tooltip effect="light" content="13:20 - 14:05" placement="right">
             <td>5</td>
           </el-tooltip>
-          <td rowspan="2">
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
+          <td rowspan="2" :class="`${weeks > 16 || weeks === 12 ? 'gray' : ''}`">
+            <div>前端技术</div>
+            <div>7408</div>
+            <div>25金融</div>
+            <div>{{ weeks > 11 ? '13-16周' : '1-11周' }}</div>
           </td>
           <td rowspan="2">
             <div></div>
@@ -245,11 +245,11 @@ const handleClose = () => {
             <div></div>
             <div></div>
           </td>
-          <td rowspan="2" :class="`${weeks > 18 || (weeks > 13 && weeks < 15) ? 'gray' : ''}`">
-            <div>Web前端</div>
-            <div>应用中心D</div>
-            <div>会计5-6班</div>
-            <div>{{ weeks < 14 ? '1-12周' : '14-17周' }}</div>
+          <td rowspan="2">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
           </td>
           <td rowspan="2">
             <div></div>
@@ -292,11 +292,11 @@ const handleClose = () => {
             <div></div>
             <div></div>
           </td>
-          <td rowspan="2" :class="`${weeks > 4 ? 'gray' : ''}`">
-            <div>数据结构</div>
-            <div>7403</div>
-            <div>计科1-2班</div>
-            <div>1-4周</div>
+          <td rowspan="2">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
           </td>
           <td rowspan="2">
             <div></div>
