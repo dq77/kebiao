@@ -156,11 +156,11 @@ const handleClose = () => {
             <el-tooltip effect="light" content="08:10 - 08:55" placement="right">
               <td>1</td>
             </el-tooltip>
-          <td rowspan="2">
-              <div></div>
-              <div></div>
-              <div></div>
-              <div></div>
+            <td rowspan="2" :class="`${weeks > 17 || weeks === 13 ? 'gray' : ''}`">
+              <div>前端技术</div>
+              <div>7408</div>
+              <div>25金融</div>
+              <div>{{ weeks > 12 ? '13-16周' : '1-11周' }}</div>
             </td>
             <td rowspan="2">
               <div></div>
@@ -238,11 +238,11 @@ const handleClose = () => {
             <el-tooltip effect="light" content="13:20 - 14:05" placement="right">
               <td>5</td>
               </el-tooltip>
-            <td rowspan="2" :class="`${weeks > 17 || weeks === 13 ? 'gray' : ''}`">
-              <div>前端技术</div>
-              <div>7408</div>
-              <div>25金融</div>
-              <div>{{ weeks > 12 ? '13-16周' : '1-11周' }}</div>
+            <td rowspan="2">
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
             </td>
             <td rowspan="2">
               <div></div>
