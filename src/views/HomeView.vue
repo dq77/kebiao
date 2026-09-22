@@ -162,11 +162,11 @@ const handleClose = () => {
               <div>25金融</div>
               <div>{{ weeks > 11 ? '13-16周' : '1-11周' }}</div>
             </td>
-            <td rowspan="2" :class="`${weeks === 9 ? '' : 'gray'}`">
+            <td rowspan="2" :class="`${weeks > 8 && weeks < 12 ? '' : 'gray'}`">
               <div>认知实习</div>
-              <div>华为407F</div>
-              <div>26汽车2班</div>
-              <div>9周</div>
+              <div>{{ weeks < 10 ? '华为407F' : weeks === 10 ? '华为405E' : '华为507K' }}</div>
+              <div>{{ weeks < 10 ? '26汽车02' : weeks === 10 ? '26金融03' : '26金融02' }}</div>
+              <div>{{ weeks < 10 ? '9周' : weeks === 10 ? '10周' : '11周' }}</div>
             </td>
             <td rowspan="2" :class="`${weeks > 18 ? 'gray' : ''}`">
               <div>数据结构</div>
@@ -203,11 +203,11 @@ const handleClose = () => {
               <div></div>
               <div></div>
             </td>
-            <td rowspan="2" :class="`${weeks === 9 ? '' : 'gray'}`">
+            <td rowspan="2" :class="`${weeks > 8 && weeks < 12 ? '' : 'gray'}`">
               <div>认知实习</div>
-              <div>华为407F</div>
-              <div>26汽车2班</div>
-              <div>9周</div>
+              <div>{{ weeks < 10 ? '华为407F' : weeks === 10 ? '华为405E' : '华为507K' }}</div>
+              <div>{{ weeks < 10 ? '26汽车02' : weeks === 10 ? '26金融03' : '26金融02' }}</div>
+              <div>{{ weeks < 10 ? '9周' : weeks === 10 ? '10周' : '11周' }}</div>
             </td>
             <td rowspan="2" :class="`${weeks > 18 ? 'gray' : ''}`">
               <div>数据结构</div>
@@ -238,11 +238,11 @@ const handleClose = () => {
             <el-tooltip effect="light" content="13:20 - 14:05" placement="right">
               <td>5</td>
               </el-tooltip>
-            <td rowspan="2">
-              <div></div>
-              <div></div>
-              <div></div>
-              <div></div>
+            <td rowspan="2" :class="`${weeks === 11 ? '' : 'gray'}`">
+              <div>认知实习</div>
+              <div>华为201B</div>
+              <div>26金融01</div>
+              <div>11周</div>
             </td>
             <td rowspan="2">
               <div></div>
@@ -279,11 +279,11 @@ const handleClose = () => {
             <el-tooltip effect="light" content="15:15 - 15:55" placement="right">
               <td>7</td>
             </el-tooltip>
-            <td rowspan="2">
-              <div></div>
-              <div></div>
-              <div></div>
-              <div></div>
+            <td rowspan="2" :class="`${weeks === 11 ? '' : 'gray'}`">
+              <div>认知实习</div>
+              <div>华为201B</div>
+              <div>26金融01</div>
+              <div>11周</div>
             </td>
             <td rowspan="2">
               <div></div>
