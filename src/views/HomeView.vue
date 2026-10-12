@@ -222,9 +222,9 @@ const handleClose = () => {
               <div>8周</div>
             </td>
             <td rowspan="2" :class="`${weeks > 18 || (weeks < 15 && weeks !== 8) ? 'gray' : ''}`">
-              <div>{{ weeks < 8 ? '认知实习' : '数据结构'}}</div>
-              <div>{{ weeks < 8 ? '华为201B' : '华为103A'}}</div>
-              <div>{{ weeks < 8 ? '26兵器10班' : '25计科1班'}}</div>
+              <div>{{ weeks < 9 ? '认知实习' : '数据结构'}}</div>
+              <div>{{ weeks < 9 ? '华为201B' : '华为103A'}}</div>
+              <div>{{ weeks < 9 ? '26兵器10班' : '25计科1班'}}</div>
               <div>{{ weeks > 16 ? '16-17周' : weeks < 9 ? '7周' : '14-15周' }}</div>
             </td>
           </tr>
